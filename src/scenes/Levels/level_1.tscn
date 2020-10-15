@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/fase_background/level_1.png" type="Texture" id=1]
 [ext_resource path="res://src/scenes/Levels/level_1.gd" type="Script" id=2]
 [ext_resource path="res://src/chars/mirrila.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/interfaces/Interface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/bosses/nagayip.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/chars/monk.tscn" type="PackedScene" id=6]
 
 [node name="level_01" type="Node2D"]
 script = ExtResource( 2 )
@@ -18,7 +20,15 @@ position = Vector2( -160, -90 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/StaticBody2D"]
 polygon = PoolVector2Array( 0.131409, -0.95332, 320.097, 0.107338, 320.097, 179.712, -0.222145, 179.712, -0.222145, 103.698, 7.55603, 103.698, 12.8593, 122.083, 25.2337, 136.579, 36.5474, 142.943, 46.4469, 147.186, 53.0063, 153.985, 274.793, 153.564, 279.792, 147.893, 282.267, 141.175, 293.581, 137.286, 305.602, 126.326, 313.733, 107.234, 317.622, 93.4454, 317.269, 76.1213, 306.309, 60.565, 296.409, 51.7261, 289.338, 43.948, 276.61, 35.4627, 261.761, 29.0987, 258.225, 24.149, 243.73, 22.7348, 232.416, 21.3205, 214.738, 11.421, 192.111, 9.65328, 153.22, 7.88551, 122.814, 7.88551, 87.8127, 20.2599, 80.7416, 18.1386, 72.9634, 19.1992, 63.0639, 25.9167, 54.5786, 29.4523, 43.972, 39.3518, 30.1835, 49.2513, 13.2129, 65.5147, 6.84892, 82.4853, 7.20248, 103.698, -0.575699, 88.8492 )
 
-[node name="mirrila" parent="." instance=ExtResource( 3 )]
-position = Vector2( 166.655, 114.659 )
+[node name="gameUI" type="Node2D" parent="."]
 
-[node name="Interface" parent="." instance=ExtResource( 4 )]
+[node name="Interface" parent="gameUI" instance=ExtResource( 4 )]
+
+[node name="Boss" parent="." instance=ExtResource( 5 )]
+position = Vector2( 155.249, 53.1235 )
+
+[node name="Mirrila" parent="." instance=ExtResource( 3 )]
+position = Vector2( 155.249, 141.378 )
+
+[node name="Monk" parent="." instance=ExtResource( 6 )]
+position = Vector2( 68.6146, 124.176 )

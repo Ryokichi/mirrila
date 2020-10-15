@@ -10,7 +10,6 @@ func _process(delta):
 	
 	pass
 
-
 func _on_btn_new_game_pressed():
 	get_tree().change_scene("res://src/scenes/level_selection.tscn")
 	pass
