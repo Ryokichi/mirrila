@@ -1,16 +1,24 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var time_until_game_begin = 1
+var game_started = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	ParametrosGlobais.game_active = false
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _physics_process(delta):
+	if (!ParametrosGlobais.game_active):
+		if (time_until_game_begin > 0):
+			time_until_game_begin -= delta
+		else:
+			ParametrosGlobais.game_active = true
+			begin_attack()
+	pass
+
+func begin_attack():
+	game_started = true
+	pass

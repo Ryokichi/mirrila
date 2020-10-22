@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/chars/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/chars/monk/monk.png" type="Texture" id=2]
 [ext_resource path="res://src/chars/monk.gd" type="Script" id=3]
+[ext_resource path="res://src/projectiles/hit_animation.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "attack_down"
@@ -20,7 +21,7 @@ tracks/0/keys = {
 "values": [ 58, 70 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=2]
 resource_name = "attack_left"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -35,7 +36,7 @@ tracks/0/keys = {
 "values": [ 72, 84 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=3]
 resource_name = "attack_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -49,9 +50,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 86, 98 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "animate_hit"
+}, {
+"args": [  ],
+"method": "animate_hit"
+} ]
+}
 
-[sub_resource type="Animation" id=2]
-resource_name = "attack_up"
+[sub_resource type="Animation" id=4]
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -66,7 +83,7 @@ tracks/0/keys = {
 "values": [ 44, 56 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=5]
 resource_name = "death"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -81,8 +98,7 @@ tracks/0/keys = {
 "values": [ 100, 121 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle_down"
+[sub_resource type="Animation" id=6]
 loop = true
 step = 0.333333
 tracks/0/type = "value"
@@ -98,8 +114,7 @@ tracks/0/keys = {
 "values": [ 4, 7 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle_left"
+[sub_resource type="Animation" id=7]
 loop = true
 step = 0.333333
 tracks/0/type = "value"
@@ -115,8 +130,7 @@ tracks/0/keys = {
 "values": [ 8, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "idle_right"
+[sub_resource type="Animation" id=8]
 loop = true
 step = 0.333333
 tracks/0/type = "value"
@@ -132,8 +146,7 @@ tracks/0/keys = {
 "values": [ 12, 15 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "idle_up"
+[sub_resource type="Animation" id=9]
 loop = true
 step = 0.333333
 tracks/0/type = "value"
@@ -149,8 +162,7 @@ tracks/0/keys = {
 "values": [ 0, 3 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "walk_down"
+[sub_resource type="Animation" id=10]
 loop = true
 step = 0.125
 tracks/0/type = "value"
@@ -166,8 +178,7 @@ tracks/0/keys = {
 "values": [ 23, 29 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "walk_left"
+[sub_resource type="Animation" id=11]
 loop = true
 step = 0.125
 tracks/0/type = "value"
@@ -183,8 +194,7 @@ tracks/0/keys = {
 "values": [ 30, 36 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "walk_right"
+[sub_resource type="Animation" id=12]
 loop = true
 step = 0.125
 tracks/0/type = "value"
@@ -200,8 +210,7 @@ tracks/0/keys = {
 "values": [ 37, 43 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "walk_up"
+[sub_resource type="Animation" id=13]
 loop = true
 step = 0.125
 tracks/0/type = "value"
@@ -217,29 +226,43 @@ tracks/0/keys = {
 "values": [ 16, 22 ]
 }
 
+[sub_resource type="CircleShape2D" id=14]
+resource_local_to_scene = true
+radius = 20.0
+
 [node name="Body" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
 [node name="Animation" parent="." index="0"]
+autoplay = "idle_down"
 anims/attack_down = SubResource( 1 )
-anims/attack_left = SubResource( 11 )
-anims/attack_right = SubResource( 12 )
-anims/attack_up = SubResource( 2 )
-anims/death = SubResource( 13 )
-anims/idle_down = SubResource( 3 )
-anims/idle_left = SubResource( 4 )
-anims/idle_right = SubResource( 5 )
-anims/idle_up = SubResource( 6 )
-anims/walk_down = SubResource( 7 )
-anims/walk_left = SubResource( 8 )
-anims/walk_right = SubResource( 9 )
-anims/walk_up = SubResource( 10 )
+anims/attack_left = SubResource( 2 )
+anims/attack_right = SubResource( 3 )
+anims/attack_up = SubResource( 4 )
+anims/death = SubResource( 5 )
+anims/idle_down = SubResource( 6 )
+anims/idle_left = SubResource( 7 )
+anims/idle_right = SubResource( 8 )
+anims/idle_up = SubResource( 9 )
+anims/walk_down = SubResource( 10 )
+anims/walk_left = SubResource( 11 )
+anims/walk_right = SubResource( 12 )
+anims/walk_up = SubResource( 13 )
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2( 0, -12.1092 )
+position = Vector2( 0, -11 )
 texture = ExtResource( 2 )
 vframes = 13
 hframes = 10
-frame = 121
+frame = 86
 
-[editable path="health_bar"]
+[node name="Collision" parent="." index="2"]
+position = Vector2( 0, 1 )
+
+[node name="Hit" parent="." index="4" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 32.1763, -11.6386 )
+
+[node name="CollisionShape2D" parent="Attack_Range" index="0"]
+shape = SubResource( 14 )
+[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]

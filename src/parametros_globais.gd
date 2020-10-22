@@ -2,6 +2,7 @@ extends Node
 
 var solto =  load("res://assets/cursor/cursor_normal.png")
 var pressionado = load("res://assets/cursor/cursor_pressionado.png")
+var game_active =  false
 
 
 func _ready():

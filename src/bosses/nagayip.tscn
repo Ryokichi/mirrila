@@ -12,7 +12,7 @@ resource_name = "idle"
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
-tracks/0/path = NodePath("Position2D/Sprite:frame")
+tracks/0/path = NodePath("Position/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -26,16 +26,18 @@ tracks/0/keys = {
 
 [node name="Body" type="KinematicBody2D"]
 position = Vector2( 0, 4 )
+collision_layer = 4
+collision_mask = 9
 script = ExtResource( 2 )
 
-[node name="Position2D" type="Position2D" parent="."]
+[node name="Position" type="Position2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Position2D"]
+[node name="Sprite" type="Sprite" parent="Position"]
 texture = ExtResource( 1 )
 hframes = 10
 frame = 9
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -3 )
 rotation = 1.5708
 shape = SubResource( 1 )

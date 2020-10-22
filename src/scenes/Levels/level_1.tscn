@@ -1,34 +1,37 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/fase_background/level_1.png" type="Texture" id=1]
-[ext_resource path="res://src/scenes/Levels/level_1.gd" type="Script" id=2]
-[ext_resource path="res://src/chars/mirrila.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/interfaces/Interface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/scenes/Levels/level_base.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scenes/Levels/level_1.gd" type="Script" id=3]
 [ext_resource path="res://src/bosses/nagayip.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/chars/monk.tscn" type="PackedScene" id=6]
 
-[node name="level_01" type="Node2D"]
-script = ExtResource( 2 )
+[node name="Level" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
 
-[node name="background" type="Sprite" parent="."]
+[node name="Background" parent="." index="0"]
 position = Vector2( 160, 90 )
 texture = ExtResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="background"]
-position = Vector2( -160, -90 )
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" index="0"]
+collision_layer = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/StaticBody2D"]
-polygon = PoolVector2Array( 0.131409, -0.95332, 320.097, 0.107338, 320.097, 179.712, -0.222145, 179.712, -0.222145, 103.698, 7.55603, 103.698, 12.8593, 122.083, 25.2337, 136.579, 36.5474, 142.943, 46.4469, 147.186, 53.0063, 153.985, 274.793, 153.564, 279.792, 147.893, 282.267, 141.175, 293.581, 137.286, 305.602, 126.326, 313.733, 107.234, 317.622, 93.4454, 317.269, 76.1213, 306.309, 60.565, 296.409, 51.7261, 289.338, 43.948, 276.61, 35.4627, 261.761, 29.0987, 258.225, 24.149, 243.73, 22.7348, 232.416, 21.3205, 214.738, 11.421, 192.111, 9.65328, 153.22, 7.88551, 122.814, 7.88551, 87.8127, 20.2599, 80.7416, 18.1386, 72.9634, 19.1992, 63.0639, 25.9167, 54.5786, 29.4523, 43.972, 39.3518, 30.1835, 49.2513, 13.2129, 65.5147, 6.84892, 82.4853, 7.20248, 103.698, -0.575699, 88.8492 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/StaticBody2D" index="0"]
+polygon = PoolVector2Array( -73.2999, 79.3868, -53.4562, 64.8977, 52.6922, 65.2127, 85.4501, 77.8119, 108.444, 68.6775, 123.563, 53.2434, 145.926, 38.7544, 157.581, 5.68143, 157.896, -12.9024, 136.162, -39.0458, 103.719, -59.5195, 96.4744, -65.5041, 72.8509, -68.9689, 53.9521, -79.0483, 30.0136, -81.8831, -38.6521, -83.143, -72.67, -69.9138, -84.3242, -72.1187, -104.798, -62.0393, -125.902, -43.7705, -145.43, -25.5016, -152.99, -7.86272, -154.25, 12.926, -146.69, 32.7697, -133.461, 46.6289, -98.1834, 70.2524, -77.0797, 79.3868, -77.0797, 89.4662, -159.92, 89.4662, -159.92, -90.3876, 160.415, -89.4426, 160.1, 90.0961, -72.985, 90.0961 )
 
-[node name="gameUI" type="Node2D" parent="."]
+[node name="Boss" parent="YSort" index="0" instance=ExtResource( 5 )]
+position = Vector2( 160, 44 )
 
-[node name="Interface" parent="gameUI" instance=ExtResource( 4 )]
+[node name="Hunter" parent="YSort" index="1"]
+position = Vector2( 49, 132 )
 
-[node name="Boss" parent="." instance=ExtResource( 5 )]
-position = Vector2( 155.249, 53.1235 )
+[node name="Mage" parent="YSort" index="2"]
+position = Vector2( 224, 143 )
 
-[node name="Mirrila" parent="." instance=ExtResource( 3 )]
-position = Vector2( 155.249, 141.378 )
+[node name="Mirrila" parent="YSort" index="3"]
+position = Vector2( 160, 140 )
 
-[node name="Monk" parent="." instance=ExtResource( 6 )]
-position = Vector2( 68.6146, 124.176 )
+[node name="Monk" parent="YSort" index="4"]
+position = Vector2( 102, 145 )
+
+[node name="Warrior" parent="YSort" index="5"]
+position = Vector2( 277, 128 )
