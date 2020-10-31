@@ -23,3 +23,9 @@ func update_boss_helth(value):
 		value = $boss_health_bar.max_value
 	$boss_health_bar.value = value
 	pass
+
+
+func _on_Spell_1_input_event(viewport, event, shape_idx):
+	pass
+
+

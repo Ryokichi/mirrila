@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Djinn_IDLE.png-5376764ddc2d6e904235062d77c9a85e.stex"
+path="res://.import/cura.png-6428e4e3a55ab3f211944c1fcc4b1263.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chars/boss_2/Djinn_IDLE.png"
-dest_files=[ "res://.import/Djinn_IDLE.png-5376764ddc2d6e904235062d77c9a85e.stex" ]
+source_file="res://assets/magias/cura.png"
+dest_files=[ "res://.import/cura.png-6428e4e3a55ab3f211944c1fcc4b1263.stex" ]
 
 [params]
 

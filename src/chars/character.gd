@@ -3,17 +3,20 @@ extends KinematicBody2D
 const MAX_SPEED = 35
 const ACCELERATION = 1000
 
-onready var motion = Vector2.ZERO
-onready var new_destiny = Vector2.ZERO
 onready var state = "idle_"
 onready var orientation = "down"
 onready var stateAndOrientation = "idle_down"
-onready var current_health  = 100
-onready var max_health = 100
-onready var attack_range_rad = 5
+onready var old_stateAndOrientation = ""
+onready var motion = Vector2.ZERO
+onready var new_destiny = Vector2.ZERO
+onready var target_hit_pos = Vector2.ZERO
 onready var target = null
+onready var max_health = 100
+onready var current_health = max_health
+onready var attack_range_rad = 5
 onready var base_time_basic_attack = 1
 onready var time_basic_attack = base_time_basic_attack
+onready var my_class = null
 
 
 func _ready():
@@ -24,12 +27,13 @@ func _draw():
 #	draw_circle(Vector2(0,-11), attack_range_rad, Color(.867, .91, .247,  0.2))
 	pass
 
-func _process(delta):
+func _process(_delta):
 	update()
 	pass
 
 func _physics_process(delta):
 	if (new_destiny != Vector2.ZERO):
+		set_orientation_to_point(new_destiny)
 		move_and_slide((new_destiny - global_position).normalized() * MAX_SPEED)
 		pass
 	if (target != null):
@@ -37,22 +41,30 @@ func _physics_process(delta):
 			time_basic_attack -= delta
 		else:
 			time_basic_attack = base_time_basic_attack
-			set_state("attack")
-			self.attack_enemy()
+			set_state("attack_")
+			attack_enemy(target)
 	pass
 	
-func _on_Attack_Range_body_entered(body):
+func _on_Attack_Range_body_entered(enemy_body):
 	if (target):
 		return
-	target = body
+		
+	target = enemy_body
 	new_destiny = Vector2.ZERO
-	print("Entrou")
+	set_state('idle_')
+	set_orientation_to_point(target.global_position)
 	pass
 
 
 func _on_Attack_Range_body_exited(body):
 	if (body == target):
 		target = null
+	pass
+
+
+func set_max_health():
+	$Health_Bar/Progress.max_value = max_health
+	$Health_Bar/Progress.value = max_health
 	pass
 
 func apply_friction(amount):
@@ -67,40 +79,78 @@ func apply_movement(acceleration):
 	motion += acceleration
 	motion = motion.clamped(MAX_SPEED)
 	pass
-	
+
+func get_class():
+	return my_class
+
+
 func move_to_point(point):
-	print('tenho que me mover para', point)
 	new_destiny = point
+	set_state('walk_')
 	pass
 
 
-func attack_enemy():
-	$Animation.play(self.stateAndOrientation)
+func attack_enemy(target):
+	$RayCast.cast_to = (target.global_position - global_position)
+	$RayCast.force_raycast_update()
+	target_hit_pos = $RayCast.get_collision_point()
 	pass
 
 
 func take_damage(amount):
+	current_health -= amount
+	if (current_health  < 0):
+		current_health = 0
+	print($Health_Bar/Progress.max_value)
+	update_health(current_health)
+	pass
+
+func set_orientation_to_point(dest):
+	var angle = (dest - global_position).angle()
+	var abs_angle = abs(angle)
+	
+	var look_to = "down" if (angle > 0) else "up"
+	if (abs_angle > 3*PI/4 || abs_angle < PI/4):
+		look_to = 'left' if (abs_angle > 3*PI/4) else 'right'
+	set_orientation(look_to)
 	pass
 
 
 func set_orientation(ori):
-	self.orientation = ori
-	updade_StateAndOrientation()
+	if (self.orientation != ori):
+		self.orientation = ori
+		updade_StateAndOrientation()
 	pass
 
 
 func set_state(stt):
-	self.state = stt
-	updade_StateAndOrientation()
+	if (self.state != stt):
+		self.state = stt
+		updade_StateAndOrientation()
 	pass
 
 
-func update_health(percentage):
-	print('o pencentual é: '+str(percentage))
-	$Health_Bar/Progress.value = percentage
+func update_health(health):
+	$Health_Bar/Progress.value = health
 	pass
 
 
 func updade_StateAndOrientation():
+	self.old_stateAndOrientation = self.stateAndOrientation
 	self.stateAndOrientation = self.state + self.orientation
+	if (self.stateAndOrientation != old_stateAndOrientation):
+		play_current_animation()
+	pass
+
+func is_alive():
+	return (state != "dead")
+
+func play_current_animation():
+	$Animation.play(self.stateAndOrientation)
+	pass
+
+
+func _on_BodyArea_input_event(_viewport, event, _shape_idx):
+	if (event.is_pressed() && event.button_index == BUTTON_LEFT):
+		get_tree().get_root().get_node('Level').set_char_selected(self)
 	pass

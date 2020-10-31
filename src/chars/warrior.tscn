@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/chars/warrior/warrior.png" type="Texture" id=1]
 [ext_resource path="res://src/chars/character.tscn" type="PackedScene" id=2]
@@ -9,9 +9,17 @@
 [ext_resource path="res://assets/chars/warrior/Warrior_ATK_right.png" type="Texture" id=7]
 [ext_resource path="res://assets/chars/warrior/Warrior_ATK_back.png" type="Texture" id=8]
 [ext_resource path="res://assets/chars/warrior/Warrior_ATK_left.png" type="Texture" id=9]
+[ext_resource path="res://src/effects/hit_animation.tscn" type="PackedScene" id=10]
 
-[sub_resource type="Animation" id=1]
-resource_name = "attack_down"
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 10, 14 )
+
+[sub_resource type="CircleShape2D" id=2]
+resource_local_to_scene = true
+radius = 20.0
+
+[sub_resource type="Animation" id=3]
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -61,9 +69,22 @@ tracks/3/keys = {
 "update": 1,
 "values": [ ExtResource( 6 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.791667 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "animate_hit"
+} ]
+}
 
-[sub_resource type="Animation" id=2]
-resource_name = "attack_left"
+[sub_resource type="Animation" id=4]
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -74,7 +95,7 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
-"update": 1,
+"update": 0,
 "values": [ 0, 10 ]
 }
 tracks/1/type = "value"
@@ -113,9 +134,22 @@ tracks/3/keys = {
 "update": 1,
 "values": [ ExtResource( 9 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.791667 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "animate_hit"
+} ]
+}
 
-[sub_resource type="Animation" id=3]
-resource_name = "attack_right"
+[sub_resource type="Animation" id=5]
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -165,9 +199,22 @@ tracks/3/keys = {
 "update": 1,
 "values": [ ExtResource( 7 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.791667 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "animate_hit"
+} ]
+}
 
-[sub_resource type="Animation" id=4]
-resource_name = "attack_up"
+[sub_resource type="Animation" id=6]
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -217,9 +264,22 @@ tracks/3/keys = {
 "update": 1,
 "values": [ ExtResource( 8 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.791667 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "animate_hit"
+} ]
+}
 
-[sub_resource type="Animation" id=5]
-resource_name = "death"
+[sub_resource type="Animation" id=7]
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -270,7 +330,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 4 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -322,7 +382,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -374,8 +434,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "idle_right"
+[sub_resource type="Animation" id=10]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -427,7 +486,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=11]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -479,8 +538,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "victory"
+[sub_resource type="Animation" id=12]
 length = 0.5
 step = 0.0416667
 tracks/0/type = "value"
@@ -532,7 +590,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -584,8 +642,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "walk_left"
+[sub_resource type="Animation" id=14]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -637,8 +694,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "walk_right"
+[sub_resource type="Animation" id=15]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -690,7 +746,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -742,39 +798,43 @@ tracks/3/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=15]
-resource_local_to_scene = true
-radius = 20.0
-
 [node name="Body" instance=ExtResource( 2 )]
 script = ExtResource( 5 )
 
-[node name="Animation" parent="." index="0"]
-autoplay = "idle_down"
-anims/attack_down = SubResource( 1 )
-anims/attack_left = SubResource( 2 )
-anims/attack_right = SubResource( 3 )
-anims/attack_up = SubResource( 4 )
-anims/death = SubResource( 5 )
-anims/idle_down = SubResource( 6 )
-anims/idle_left = SubResource( 7 )
-anims/idle_right = SubResource( 8 )
-anims/idle_up = SubResource( 9 )
-anims/victory = SubResource( 10 )
-anims/walk_down = SubResource( 11 )
-anims/walk_left = SubResource( 12 )
-anims/walk_right = SubResource( 13 )
-anims/walk_up = SubResource( 14 )
+[node name="CollisionShape2D" parent="BodyArea" index="0"]
+position = Vector2( 0, -9 )
+shape = SubResource( 1 )
 
-[node name="Sprite" parent="." index="1"]
+[node name="CollisionShape2D" parent="Attack_Range" index="0"]
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="." index="2"]
 position = Vector2( 0, -11 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 10
-frame = 10
+frame = 33
 
-[node name="Collision" parent="." index="2"]
+[node name="Collision" parent="." index="3"]
 position = Vector2( 0, 2 )
 
-[node name="CollisionShape2D" parent="Attack_Range" index="0"]
-shape = SubResource( 15 )
+[node name="Animation" parent="." index="4"]
+autoplay = "idle_down"
+anims/attack_down = SubResource( 3 )
+anims/attack_left = SubResource( 4 )
+anims/attack_right = SubResource( 5 )
+anims/attack_up = SubResource( 6 )
+anims/death = SubResource( 7 )
+anims/idle_down = SubResource( 8 )
+anims/idle_left = SubResource( 9 )
+anims/idle_right = SubResource( 10 )
+anims/idle_up = SubResource( 11 )
+anims/victory = SubResource( 12 )
+anims/walk_down = SubResource( 13 )
+anims/walk_left = SubResource( 14 )
+anims/walk_right = SubResource( 15 )
+anims/walk_up = SubResource( 16 )
+
+[node name="Hit" parent="." index="7" instance=ExtResource( 10 )]
+visible = false
+[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]

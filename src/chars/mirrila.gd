@@ -1,22 +1,22 @@
 extends "res://src/chars/character.gd"
 
 
-
-onready var MANA_BAR = get_parent().get_node('GameUI/Interface')
-
-onready var deldelta = 0
+onready var MANA_BAR = get_parent().get_node('../GameUI/Interface')
 onready var current_mana = 100
 onready var max_mana = 100
 
 
 func _ready():
 #	MANA_BAR.set_max_value(self.max_mana)
+	max_health = 100
+	current_health = max_health
+	my_class  = "Healer"
 	attack_range_rad = 40
 	$Attack_Range/CollisionShape2D.shape.radius = attack_range_rad
 	pass
 
 
-func _process(delta):
+func _process(_delta):
 	
 	pass
 
@@ -57,11 +57,11 @@ func update_animation(axis):
 		newOrientation = "down"
 		pass
 	
-	if ((newState != self.state) || (newOrientation != self.orientation)):
-		self.state = newState
-		self.orientation = newOrientation
-		self.stateAndOrientation = self.state + self.orientation
-		$Animation.play(self.stateAndOrientation)
+	if ((newState != state) || (newOrientation != orientation)):
+		state = newState
+		orientation = newOrientation
+		stateAndOrientation = state + orientation
+		$Animation.play(stateAndOrientation)
 		pass
 	pass
 

@@ -1,5 +1,5 @@
 extends Control
 
-func update_health(perc):
-	$Progress.value(perc)
+func update_health(value):
+	$Progress.value(value)
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/chars/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/chars/mage.gd" type="Script" id=2]
@@ -11,7 +11,15 @@
 [ext_resource path="res://assets/chars/mage/Mage_DTH.png" type="Texture" id=9]
 [ext_resource path="res://src/projectiles/magic_ball.tscn" type="PackedScene" id=10]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 9, 10 )
+
+[sub_resource type="CircleShape2D" id=2]
+resource_local_to_scene = true
+radius = 40.0
+
+[sub_resource type="Animation" id=3]
 length = 0.5
 step = 0.0416667
 tracks/0/type = "value"
@@ -69,15 +77,15 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.458333 ),
+"times": PoolRealArray( 0.504 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "ataca"
+"method": "lanca_magia"
 } ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 length = 0.5
 step = 0.0416667
 tracks/0/type = "value"
@@ -139,11 +147,11 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "ataca"
+"method": "lanca_magia"
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 0.5
 step = 0.0416667
 tracks/0/type = "value"
@@ -205,12 +213,11 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "ataca"
+"method": "lanca_magia"
 } ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "attack_up"
+[sub_resource type="Animation" id=6]
 length = 0.5
 step = 0.0416667
 tracks/0/type = "value"
@@ -272,12 +279,11 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "ataca"
+"method": "lanca_magia"
 } ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "death"
+[sub_resource type="Animation" id=7]
 length = 0.5
 step = 0.0416667
 tracks/0/type = "value"
@@ -329,7 +335,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 9 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -381,7 +387,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -433,7 +439,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -485,7 +491,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=11]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -537,8 +543,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "victory"
+[sub_resource type="Animation" id=12]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -590,7 +595,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 7 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -642,7 +647,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -694,7 +699,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=15]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -746,7 +751,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -798,38 +803,38 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=15]
-resource_local_to_scene = true
-radius = 40.0
-
 [node name="Body" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 magic_ball = ExtResource( 10 )
 
-[node name="Animation" parent="." index="0"]
-autoplay = "idle_down"
-anims/attack_down = SubResource( 1 )
-anims/attack_left = SubResource( 2 )
-anims/attack_right = SubResource( 3 )
-anims/attack_up = SubResource( 4 )
-anims/death = SubResource( 5 )
-anims/idle_down = SubResource( 6 )
-anims/idle_left = SubResource( 7 )
-anims/idle_right = SubResource( 8 )
-anims/idle_up = SubResource( 9 )
-anims/victory = SubResource( 10 )
-anims/walk_down = SubResource( 11 )
-anims/walk_left = SubResource( 12 )
-anims/walk_right = SubResource( 13 )
-anims/walk_up = SubResource( 14 )
-
-[node name="Sprite" parent="." index="1"]
-position = Vector2( 0, -11 )
-texture = ExtResource( 5 )
-hframes = 8
-
-[node name="Collision" parent="." index="2"]
-position = Vector2( 0, 1 )
+[node name="CollisionShape2D" parent="BodyArea" index="0"]
+position = Vector2( 0, -7 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="Attack_Range" index="0"]
-shape = SubResource( 15 )
+shape = SubResource( 2 )
+
+[node name="Sprite" parent="." index="2"]
+position = Vector2( 0, -11 )
+texture = ExtResource( 4 )
+hframes = 8
+
+[node name="Collision" parent="." index="3"]
+position = Vector2( 0, 1 )
+
+[node name="Animation" parent="." index="4"]
+autoplay = "idle_down"
+anims/attack_down = SubResource( 3 )
+anims/attack_left = SubResource( 4 )
+anims/attack_right = SubResource( 5 )
+anims/attack_up = SubResource( 6 )
+anims/death = SubResource( 7 )
+anims/idle_down = SubResource( 8 )
+anims/idle_left = SubResource( 9 )
+anims/idle_right = SubResource( 10 )
+anims/idle_up = SubResource( 11 )
+anims/victory = SubResource( 12 )
+anims/walk_down = SubResource( 13 )
+anims/walk_left = SubResource( 14 )
+anims/walk_right = SubResource( 15 )
+anims/walk_up = SubResource( 16 )

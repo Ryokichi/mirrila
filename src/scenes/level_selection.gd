@@ -50,5 +50,5 @@ func _on_btn_next_level_pressed():
 	pass
 
 func _on_level_btn_1_pressed():
-	get_tree().change_scene("res://src/scenes/Levels/level_1.tscn")
+	get_tree().change_scene("res://src/levels/level_1.tscn")
 	pass

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Nagayip_Idle.png-7fa863cc188496941f6c82465a2f5e86.stex"
+path="res://.import/Nagayip_Idle.png-660397abce2b2eeacc6f5217f521a4b9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chars/boss_1/Nagayip_Idle.png"
-dest_files=[ "res://.import/Nagayip_Idle.png-7fa863cc188496941f6c82465a2f5e86.stex" ]
+source_file="res://assets/bosses/boss_1/Nagayip_Idle.png"
+dest_files=[ "res://.import/Nagayip_Idle.png-660397abce2b2eeacc6f5217f521a4b9.stex" ]
 
 [params]
 
