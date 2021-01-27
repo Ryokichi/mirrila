@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/fase_background/level_1.png" type="Texture" id=1]
-[ext_resource path="res://src/Levels/level_base.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Levels/level_1.gd" type="Script" id=3]
+[ext_resource path="res://src/levels/level_base.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/levels/level_1.gd" type="Script" id=3]
 [ext_resource path="res://src/bosses/nagayip.tscn" type="PackedScene" id=5]
 
 [node name="Level" instance=ExtResource( 2 )]
