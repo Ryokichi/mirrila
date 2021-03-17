@@ -7,7 +7,7 @@
 [ext_resource path="res://src/chars/mirrila.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/chars/warrior.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/chars/hunter.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/Levels/level_base.gd" type="Script" id=8]
+[ext_resource path="res://src/levels/level_base.gd" type="Script" id=8]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 8 )
