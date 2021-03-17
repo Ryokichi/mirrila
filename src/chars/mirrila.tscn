@@ -12,7 +12,7 @@ extents = Vector2( 10, 13 )
 resource_local_to_scene = true
 radius = 40.0
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -63,7 +63,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -115,7 +115,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 loop = true
 step = 0.166667
 tracks/0/type = "value"
@@ -167,7 +167,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -219,7 +219,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 loop = true
 step = 0.0416667
 tracks/0/type = "value"
@@ -271,7 +271,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 length = 0.583333
 loop = true
 step = 0.0416667
@@ -324,7 +324,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 length = 0.583333
 loop = true
 step = 0.0416667
@@ -377,7 +377,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=10]
 length = 0.583333
 loop = true
 step = 0.0416667
@@ -430,7 +430,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 3 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=11]
 length = 0.583333
 loop = true
 step = 0.0416667
@@ -499,18 +499,18 @@ position = Vector2( 0, -11 )
 texture = ExtResource( 3 )
 vframes = 10
 hframes = 10
-frame = 20
+frame = 60
 
 [node name="Collision" parent="." index="3"]
 position = Vector2( 0, -1 )
 
 [node name="Animation" parent="." index="4"]
-anims/die = SubResource( 5 )
-anims/idle_down = SubResource( 6 )
-anims/idle_left = SubResource( 7 )
-anims/idle_right = SubResource( 8 )
-anims/idle_up = SubResource( 9 )
-anims/walk_down = SubResource( 10 )
-anims/walk_left = SubResource( 11 )
-anims/walk_right = SubResource( 12 )
-anims/walk_up = SubResource( 13 )
+anims/die = SubResource( 3 )
+anims/idle_down = SubResource( 4 )
+anims/idle_left = SubResource( 5 )
+anims/idle_right = SubResource( 6 )
+anims/idle_up = SubResource( 7 )
+anims/walk_down = SubResource( 8 )
+anims/walk_left = SubResource( 9 )
+anims/walk_right = SubResource( 10 )
+anims/walk_up = SubResource( 11 )

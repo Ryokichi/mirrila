@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fase_3_selecao.png-45a0c9fdd5e1df78faf345595041c2b4.stex"
+path="res://.import/spell_4.png-1623e5bafa92fd7fb7b4a1b7e6ac9ecf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fase_selecao/fase_3_selecao.png"
-dest_files=[ "res://.import/fase_3_selecao.png-45a0c9fdd5e1df78faf345595041c2b4.stex" ]
+source_file="res://assets/spells/spell_4.png"
+dest_files=[ "res://.import/spell_4.png-1623e5bafa92fd7fb7b4a1b7e6ac9ecf.stex" ]
 
 [params]
 

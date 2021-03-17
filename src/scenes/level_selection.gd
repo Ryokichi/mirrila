@@ -49,6 +49,7 @@ func _on_btn_next_level_pressed():
 #	update_level_btn_position()
 	pass
 
-func _on_level_btn_1_pressed():
-	get_tree().change_scene("res://src/levels/level_1.tscn")
+func _on_level_btn_selection_pressed(lvl_num):
+	var path = "res://src/levels/level_" + str(lvl_num) + ".tscn"
+	get_tree().change_scene(path)
 	pass

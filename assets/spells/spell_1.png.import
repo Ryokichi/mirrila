@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cura.png-6428e4e3a55ab3f211944c1fcc4b1263.stex"
+path="res://.import/spell_1.png-f6f99a1fd1ac153b40840bbcb321afbc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/magias/cura.png"
-dest_files=[ "res://.import/cura.png-6428e4e3a55ab3f211944c1fcc4b1263.stex" ]
+source_file="res://assets/spells/spell_1.png"
+dest_files=[ "res://.import/spell_1.png-f6f99a1fd1ac153b40840bbcb321afbc.stex" ]
 
 [params]
 

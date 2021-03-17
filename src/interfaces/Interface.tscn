@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/ui/player_mana_bar_bg.png" type="Texture" id=6]
 [ext_resource path="res://assets/ui/boss_health_bar.png" type="Texture" id=7]
 [ext_resource path="res://src/interfaces/Interface.gd" type="Script" id=8]
-[ext_resource path="res://src/spells/cura.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/spells/spell.tscn" type="PackedScene" id=9]
 
 [node name="Interface" type="Control"]
 anchor_right = 1.0
@@ -36,7 +36,8 @@ position = Vector2( 20, 0 )
 [node name="Spell_5" parent="Spell_Bar" instance=ExtResource( 9 )]
 position = Vector2( 40, 0 )
 
-[node name="Spell_Frame" type="Sprite" parent="Spell_Bar"]
+[node name="Spell_Frame" type="Sprite" parent="."]
+position = Vector2( 160, 166 )
 texture = ExtResource( 2 )
 
 [node name="mana_bar" type="TextureProgress" parent="."]
