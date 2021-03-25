@@ -5,10 +5,10 @@ var texture_image = "res://assets/spells/spell_1.png"
 func set_ini_values():
 	base_heal = 10
 	base_mana = 10
-	base_time_cast = 10
-	base_time_cd = 10
-	curr_time_cast = 10
-	curr_time_cd = 10
+	base_time_cast = 2
+	base_time_cd = 2
+	curr_time_cast = 3
+	curr_time_cd = 3
 	set_texture_image()
 	pass
 
