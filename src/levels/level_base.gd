@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var time_until_game_begin = 3
 var game_started = false
 var char_selected = null
@@ -25,15 +24,18 @@ func _physics_process(delta):
 	pass
 	
 func _input(event):
-	if event.is_action_pressed("KEY_1"):
+	if (!ParametrosGlobais.game_active):
+		return
+	
+	if event.is_action_pressed("Spell_1"):
 		$GameUI/Interface/Spell_Bar/Spell_1.active_spell()
-	if event.is_action_pressed("KEY_2"):
+	if event.is_action_pressed("Spell_2"):
 		$GameUI/Interface/Spell_Bar/Spell_2.active_spell()
-	if event.is_action_pressed("KEY_3"):
+	if event.is_action_pressed("Spell_3"):
 		$GameUI/Interface/Spell_Bar/Spell_3.active_spell()
-	if event.is_action_pressed("KEY_4"):
+	if event.is_action_pressed("Spell_4"):
 		$GameUI/Interface/Spell_Bar/Spell_4.active_spell()
-	if event.is_action_pressed("KEY_5"):
+	if event.is_action_pressed("Spell_5"):
 		$GameUI/Interface/Spell_Bar/Spell_5.active_spell()
 	pass
 

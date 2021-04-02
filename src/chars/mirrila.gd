@@ -1,20 +1,17 @@
 extends "res://src/chars/character.gd"
 
-
-onready var MANA_BAR = get_parent().get_node('../GameUI/Interface')
-onready var current_mana = 100
-onready var max_mana = 100
-
+onready var GameInterface = get_parent().get_node('../GameUI/Interface')
+onready var current_mana = 500
+onready var max_mana = 300
 
 func _ready():
-#	MANA_BAR.set_max_value(self.max_mana)
+	GameInterface.set_mana_max_value(self.max_mana)
 	max_health = 100
 	current_health = max_health
 	my_class  = "Healer"
 	attack_range_rad = 40
 	$Attack_Range/CollisionShape2D.shape.radius = attack_range_rad
 	pass
-
 
 func _process(_delta):
 	
