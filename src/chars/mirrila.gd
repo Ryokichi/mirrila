@@ -1,5 +1,6 @@
 extends "res://src/chars/character.gd"
 
+<<<<<<< HEAD
 onready var MANA_BAR = get_parent().get_node('../GameUI/Interface')
 onready var current_mana = 100
 onready var max_mana = 100
@@ -7,6 +8,14 @@ onready var max_mana = 100
 func _ready():
 #	MANA_BAR.set_max_value(self.max_mana)
 	my_class  = "Healer"
+=======
+onready var GameInterface = get_parent().get_node('../GameUI/Interface')
+onready var current_mana = 500
+onready var max_mana = 300
+
+func _ready():
+	GameInterface.set_mana_max_value(self.max_mana)
+>>>>>>> 796a87c992b347b84923ae1dda1260d2598f3929
 	max_health = 100
 	current_health = max_health
 	attack_range_rad = 40
@@ -14,10 +23,13 @@ func _ready():
 	GlobalParameters.connect("update_cast", self, "update_cast_bar")
 	pass
 
+<<<<<<< HEAD
 func update_cast_bar(perc):
 	$Cast_Bar.update_bar(perc)
 	pass
 
+=======
+>>>>>>> 796a87c992b347b84923ae1dda1260d2598f3929
 func _process(_delta):
 	pass
 

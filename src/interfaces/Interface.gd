@@ -19,7 +19,7 @@ func _ready():
 	$Spell_Bar/Spell_5.set_ini_values()
 	pass
 
-func set_max_value(value):
+func set_mana_max_value(value):
 	if (value < 0):
 		value = 100
 	$mana_bar.max_value = value
