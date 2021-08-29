@@ -12,7 +12,7 @@ func _ready():
 	pass
 	
 
-func _process(delta):
+func _process(_delta):
 	
 #	if (time_basic_attack > 0):
 #		time_basic_attack -= delta

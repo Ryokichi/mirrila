@@ -13,7 +13,7 @@ func _ready():
 	set_max_health()
 	pass
 
-func _process(delta):
+func _process(_delta):
 	
 	pass
 
@@ -23,7 +23,7 @@ func _input(event):
 	pass
 
 
-func attack_enemy(target):
+func attack_enemy(_target):
 	$Animation.play(stateAndOrientation)
 	pass
 
@@ -36,5 +36,5 @@ func dispara():
 	pass
 
 func get_boss_pos():
-	var pos = get_parent().get_node('Boss').get_global_position()
+	var _pos = get_parent().get_node('Boss').get_global_position()
 	pass

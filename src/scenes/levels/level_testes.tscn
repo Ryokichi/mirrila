@@ -1,0 +1,132 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://src/scenes/levels/level_base.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scenes/levels/level_testes.gd" type="Script" id=2]
+[ext_resource path="res://assets/efeitos/efeito_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/efeitos/efeito_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/efeitos/efeito_4.png" type="Texture" id=5]
+[ext_resource path="res://assets/fase_background/level_1.png" type="Texture" id=6]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.3625, 1 )
+colors = PoolColorArray( 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.730682 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 12, 1, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.6
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_random = 0.3
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 0.466667, 0.890196, 0.411765, 1, 0.890196, 0.654902, 0.133333, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 2
+emission_box_extents = Vector3( 10, -8, 1 )
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, -20, 0 )
+angular_velocity = 600.0
+angular_velocity_random = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = 40.0
+angle_random = 1.0
+color_ramp = SubResource( 7 )
+
+[sub_resource type="CanvasItemMaterial" id=9]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id=10]
+colors = PoolColorArray( 0.952941, 0.909804, 0.909804, 1, 0.890196, 0.94902, 0.0392157, 1 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 11 )
+anim_speed = 5.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[node name="Level" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Background" parent="." index="0"]
+position = Vector2( 160, 90 )
+texture = ExtResource( 6 )
+
+[node name="Hunter" parent="YSort" index="0"]
+position = Vector2( 90, 100 )
+
+[node name="Mage" parent="YSort" index="1"]
+position = Vector2( 290, 100 )
+
+[node name="Mirrila" parent="YSort" index="2"]
+position = Vector2( 230, 100 )
+
+[node name="Monk" parent="YSort" index="3"]
+position = Vector2( 25, 100 )
+
+[node name="Warrior" parent="YSort" index="4"]
+position = Vector2( 160, 100 )
+
+[node name="char_selection" parent="YSort" index="5"]
+position = Vector2( 17.3268, 169.652 )
+
+[node name="Magia_1" type="Particles2D" parent="YSort" index="6"]
+position = Vector2( 229.968, 103.38 )
+emitting = false
+amount = 30
+lifetime = 0.6
+one_shot = true
+visibility_rect = Rect2( -8, 1, 16, 1 )
+process_material = SubResource( 5 )
+texture = ExtResource( 3 )
+
+[node name="Magia_2" type="Particles2D" parent="YSort" index="7"]
+position = Vector2( 90.3202, 99.1957 )
+emitting = false
+amount = 20
+one_shot = true
+visibility_rect = Rect2( -8, -4, 16, 8 )
+process_material = SubResource( 8 )
+texture = ExtResource( 4 )
+
+[node name="Magia_3" type="Particles2D" parent="YSort" index="8"]
+material = SubResource( 9 )
+position = Vector2( 162.223, 90.8778 )
+amount = 4
+visibility_rect = Rect2( -25, -25, 50, 50 )
+process_material = SubResource( 12 )
+texture = ExtResource( 5 )

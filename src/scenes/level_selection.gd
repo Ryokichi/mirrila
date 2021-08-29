@@ -15,8 +15,7 @@ func _ready():
 #	$level_btn_2.rect_position = Vector2(110, 30)
 #	$level_btn_3.rect_position = Vector2(120, 30)
 #
-#	self.update_level_btn_position();
-	
+#	self.update_level_btn_position();	
 	pass
 	
 func update_level_btn_position():
@@ -50,6 +49,6 @@ func _on_btn_next_level_pressed():
 	pass
 
 func _on_level_btn_selection_pressed(lvl_num):
-	var path = "res://src/levels/level_" + str(lvl_num) + ".tscn"
-	get_tree().change_scene(path)
+	var path = "res://src/scenes/levels/level_" + str(lvl_num) + ".tscn"
+	return get_tree().change_scene(path)
 	pass

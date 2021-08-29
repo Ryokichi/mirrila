@@ -3,7 +3,6 @@
 [ext_resource path="res://assets/chars/warrior/Warrior_HIT.png" type="Texture" id=1]
 [ext_resource path="res://src/effects/hit_animation.gd" type="Script" id=2]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "hunter_hit"
 length = 0.166667

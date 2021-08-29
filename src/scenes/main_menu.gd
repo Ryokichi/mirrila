@@ -11,5 +11,10 @@ func _ready():
 #	pass
 
 func _on_btn_new_game_pressed():
-	get_tree().change_scene("res://src/scenes/level_selection.tscn")
+	return get_tree().change_scene("res://src/scenes/level_selection.tscn")
+	pass
+
+
+func _on_teste_pressed():
+	return get_tree().change_scene("res://src/scenes/levels/level_testes.tscn")
 	pass

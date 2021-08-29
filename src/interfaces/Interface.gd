@@ -44,7 +44,7 @@ func update_boss_helth(value):
 	pass
 
 
-func _on_Spell_1_input_event(viewport, event, shape_idx):
+func _on_Spell_1_input_event(_viewport, event, _shape_idx):
 	pass
 
 

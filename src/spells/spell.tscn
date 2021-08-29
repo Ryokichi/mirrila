@@ -29,4 +29,5 @@ tint_progress = Color( 0.313726, 0.313726, 0.313726, 0.392157 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

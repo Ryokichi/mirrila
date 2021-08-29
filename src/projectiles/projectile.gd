@@ -25,6 +25,6 @@ func va_para_inimigo(pos):
 	look_at(pos)
 	pass
 
-func apply_damage(boss):
+func apply_damage(_boss):
 	print ('existe projetil que necessita sobrescrever metodo  aplicar dano')
 	pass

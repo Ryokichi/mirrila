@@ -12,8 +12,8 @@ func set_ini_values():
 	set_texture_image()
 	pass
 
-func active_spell():
-	.active_spell()
+func set_active():
+	.set_active()
 	print("blabla")
 	pass
 

@@ -3,7 +3,7 @@ extends "res://src/chars/character.gd"
 export (PackedScene) var magic_ball
 
 func _ready():
-	my_class = "Mage"
+	my_name = "Mage"
 	attack_range_rad = 40
 	$Attack_Range/CollisionShape2D.shape.radius = attack_range_rad
 	max_health = 120
@@ -12,11 +12,11 @@ func _ready():
 	pass
 
 
-func _process(delta):
+func _process(_delta):
 	
 	pass
 
-func _input(event):
+func _input(_event):
 	
 	pass
 
@@ -27,6 +27,6 @@ func lanca_magia():
 	get_owner().add_child(projectile)
 	pass
 	
-func attack_enemy(target):
+func attack_enemy(_target):
 	$Animation.play(self.stateAndOrientation)
 	pass

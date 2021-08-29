@@ -1,28 +1,29 @@
 extends "res://src/chars/character.gd"
 
-
 onready var MANA_BAR = get_parent().get_node('../GameUI/Interface')
 onready var current_mana = 100
 onready var max_mana = 100
 
-
 func _ready():
 #	MANA_BAR.set_max_value(self.max_mana)
+	my_class  = "Healer"
 	max_health = 100
 	current_health = max_health
-	my_class  = "Healer"
 	attack_range_rad = 40
 	$Attack_Range/CollisionShape2D.shape.radius = attack_range_rad
+	GlobalParameters.connect("update_cast", self, "update_cast_bar")
 	pass
 
+func update_cast_bar(perc):
+	$Cast_Bar.update_bar(perc)
+	pass
 
 func _process(_delta):
-	
 	pass
 
 
 func _physics_process(delta):
-	if (ParametrosGlobais.game_active):
+	if (GlobalParameters.game_active):
 		var axis = get_input_axis()
 		if axis == Vector2.ZERO:
 			apply_friction(ACCELERATION * delta)

@@ -17,6 +17,7 @@ onready var attack_range_rad = 5
 onready var base_time_basic_attack = 1
 onready var time_basic_attack = base_time_basic_attack
 onready var my_class = null
+onready var my_name = null
 
 
 func _ready():
@@ -90,8 +91,8 @@ func move_to_point(point):
 	pass
 
 
-func attack_enemy(target):
-	$RayCast.cast_to = (target.global_position - global_position)
+func attack_enemy(_target):
+	$RayCast.cast_to = (_target.global_position - global_position)
 	$RayCast.force_raycast_update()
 	target_hit_pos = $RayCast.get_collision_point()
 	pass
@@ -101,7 +102,6 @@ func take_damage(amount):
 	current_health -= amount
 	if (current_health  < 0):
 		current_health = 0
-	print($Health_Bar/Progress.max_value)
 	update_health(current_health)
 	pass
 
@@ -149,8 +149,9 @@ func play_current_animation():
 	$Animation.play(self.stateAndOrientation)
 	pass
 
-
 func _on_BodyArea_input_event(_viewport, event, _shape_idx):
 	if (event.is_pressed() && event.button_index == BUTTON_LEFT):
-		get_tree().get_root().get_node('Level').set_char_selected(self)
+		GlobalSignals.emit_signal('set_ally_selected', self)
+#		get_tree().get_root().get_node('Level').set_char_selected(self)
+#		GlobalParameters.set_selected_char(self)
 	pass

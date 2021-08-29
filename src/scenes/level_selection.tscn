@@ -65,6 +65,7 @@ rect_pivot_offset = Vector2( 6, 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="level_btn_1" to="." method="_on_level_btn_selection_pressed" binds= [ 1 ]]
 [connection signal="pressed" from="level_btn_2" to="." method="_on_level_btn_selection_pressed" binds= [ 2 ]]
 [connection signal="pressed" from="level_btn_3" to="." method="_on_level_btn_selection_pressed" binds= [ 3 ]]
