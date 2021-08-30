@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Warrior_ATK_left.png-ba04f7f026c55d327a4eb1fa0e821e4e.stex"
+path="res://.import/Hunter_projectile_hit.png-e7e3b4d888a5c9da9258f1857dfec07e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chars/warrior/Warrior_ATK_left.png"
-dest_files=[ "res://.import/Warrior_ATK_left.png-ba04f7f026c55d327a4eb1fa0e821e4e.stex" ]
+source_file="res://assets/chars/hunter/Hunter_projectile_hit.png"
+dest_files=[ "res://.import/Hunter_projectile_hit.png-e7e3b4d888a5c9da9258f1857dfec07e.stex" ]
 
 [params]
 

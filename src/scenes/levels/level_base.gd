@@ -25,27 +25,18 @@ func _physics_process(delta):
 	pass
 	
 func _input(event):
-#	if event.is_action_pressed("KEY_1"):
-#		$GameUI/Interface/Spell_Bar/Spell_1.active_spell()
-#	if event.is_action_pressed("KEY_2"):
-#		$GameUI/Interface/Spell_Bar/Spell_2.active_spell()
-#	if event.is_action_pressed("KEY_3"):
-#		$GameUI/Interface/Spell_Bar/Spell_3.active_spell()
-#	if event.is_action_pressed("KEY_4"):
-#		$GameUI/Interface/Spell_Bar/Spell_4.active_spell()
-#	if event.is_action_pressed("KEY_5"):
-#		$GameUI/Interface/Spell_Bar/Spell_5.active_spell()
+	if event.is_action_pressed("KEY_1"):
+		$GameUI/Interface/Spell_Bar/Spell_1.active_spell()
+	if event.is_action_pressed("KEY_2"):
+		$GameUI/Interface/Spell_Bar/Spell_2.active_spell()
+	if event.is_action_pressed("KEY_3"):
+		$GameUI/Interface/Spell_Bar/Spell_3.active_spell()
+	if event.is_action_pressed("KEY_4"):
+		$GameUI/Interface/Spell_Bar/Spell_4.active_spell()
+	if event.is_action_pressed("KEY_5"):
+		$GameUI/Interface/Spell_Bar/Spell_5.active_spell()
 	pass
 
 func begin_attack():
 #	game_started = true
-	pass
-
-func set_char_selected(char_clicked):
-#	char_selected = char_clicked
-#	$GameUI/Interface/Spell_Bar/Spell_1.set_target(char_selected)
-#	$GameUI/Interface/Spell_Bar/Spell_2.set_target(char_selected)
-#	$GameUI/Interface/Spell_Bar/Spell_3.set_target(char_selected)
-#	$GameUI/Interface/Spell_Bar/Spell_4.set_target(char_selected)
-#	$GameUI/Interface/Spell_Bar/Spell_5.set_target(char_selected)
 	pass

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Warrior_DTH.png-1339c74458d76da072b0b42d49b8938b.stex"
+path="res://.import/Monk_HIT.png-53c36fa42e8d3593252b46c797659993.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chars/warrior/Warrior_DTH.png"
-dest_files=[ "res://.import/Warrior_DTH.png-1339c74458d76da072b0b42d49b8938b.stex" ]
+source_file="res://assets/chars/monk/Monk_HIT.png"
+dest_files=[ "res://.import/Monk_HIT.png-53c36fa42e8d3593252b46c797659993.stex" ]
 
 [params]
 

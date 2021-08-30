@@ -1,4 +1,5 @@
 extends Control
+
 onready var script_1 = preload("res://src/spells/spell_1.gd")
 onready var script_2 = preload("res://src/spells/spell_2.gd")
 onready var script_3 = preload("res://src/spells/spell_3.gd")
@@ -43,8 +44,5 @@ func update_boss_helth(value):
 	$boss_health_bar.value = value
 	pass
 
-
 func _on_Spell_1_input_event(_viewport, event, _shape_idx):
 	pass
-
-

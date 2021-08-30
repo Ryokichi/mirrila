@@ -7,7 +7,6 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 9, 10 )
 
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
@@ -802,15 +801,9 @@ tracks/3/keys = {
 script = ExtResource( 2 )
 magic_ball = ExtResource( 10 )
 
-[node name="BodyArea" parent="." index="0"]
-visible = false
-
 [node name="CollisionShape2D" parent="BodyArea" index="0"]
-position = Vector2( 0, -7 )
+position = Vector2( 0, -9 )
 shape = SubResource( 1 )
-
-[node name="Attack_Range" parent="." index="1"]
-visible = false
 
 [node name="CollisionShape2D" parent="Attack_Range" index="0"]
 shape = SubResource( 2 )
@@ -821,10 +814,6 @@ texture = ExtResource( 3 )
 hframes = 10
 vframes = 15
 frame = 135
-
-[node name="Collision" parent="." index="3"]
-visible = false
-position = Vector2( 0, 1 )
 
 [node name="Animation" parent="." index="4"]
 autoplay = "idle_down"
@@ -843,5 +832,5 @@ anims/walk_left = SubResource( 14 )
 anims/walk_right = SubResource( 15 )
 anims/walk_up = SubResource( 16 )
 
-[node name="RayCast" parent="." index="7"]
+[node name="Cast_Bar" parent="." index="6"]
 visible = false

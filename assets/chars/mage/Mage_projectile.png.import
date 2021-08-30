@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Warrior_VICTORY.png-3c690dffb145b3e3774518f0e0b251e0.stex"
+path="res://.import/Mage_projectile.png-08d8fda34f3886313a2df55ff5fb3b76.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chars/warrior/Warrior_VICTORY.png"
-dest_files=[ "res://.import/Warrior_VICTORY.png-3c690dffb145b3e3774518f0e0b251e0.stex" ]
+source_file="res://assets/chars/mage/Mage_projectile.png"
+dest_files=[ "res://.import/Mage_projectile.png-08d8fda34f3886313a2df55ff5fb3b76.stex" ]
 
 [params]
 

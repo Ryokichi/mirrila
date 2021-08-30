@@ -10,11 +10,11 @@ func set_ini_values():
 	curr_time_cast = 3
 	curr_time_cd = 3
 	set_texture_image()
+	reset_spell()
 	pass
 
 func set_active():
 	.set_active()
-	print("blabla")
 	pass
 
 

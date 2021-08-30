@@ -7,7 +7,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 10, 13 )
+extents = Vector2( 10, 12 )
 
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
@@ -302,15 +302,9 @@ tracks/0/keys = {
 [node name="Body" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
-[node name="BodyArea" parent="." index="0"]
-visible = false
-
 [node name="CollisionShape2D" parent="BodyArea" index="0"]
-position = Vector2( 0, -9 )
+position = Vector2( 0, -11 )
 shape = SubResource( 1 )
-
-[node name="Attack_Range" parent="." index="1"]
-visible = false
 
 [node name="CollisionShape2D" parent="Attack_Range" index="0"]
 shape = SubResource( 2 )
@@ -320,11 +314,7 @@ position = Vector2( 0, -12 )
 texture = ExtResource( 2 )
 hframes = 10
 vframes = 15
-frame = 145
-
-[node name="Collision" parent="." index="3"]
-visible = false
-position = Vector2( 0, 1 )
+frame = 4
 
 [node name="Hit" parent="." index="4" instance=ExtResource( 4 )]
 visible = false
@@ -346,9 +336,6 @@ anims/walk_down = SubResource( 13 )
 anims/walk_left = SubResource( 14 )
 anims/walk_right = SubResource( 15 )
 anims/walk_up = SubResource( 16 )
-
-[node name="Health_Bar" parent="." index="6"]
-visible = false
 
 [node name="Cast_Bar" parent="." index="7"]
 visible = false
