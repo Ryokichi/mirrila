@@ -11,6 +11,7 @@ func set_ini_values():
 	curr_time_cd = 10
 	set_texture_image()
 	reset_spell()
+	print(self.name)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

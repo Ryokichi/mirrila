@@ -3,7 +3,7 @@ extends "res://src/chars/character.gd"
 export (PackedScene) var magic_ball
 
 func _ready():
-	my_name = "Mage"
+	my_class = "Mage"
 	attack_range_rad = 40
 	$Attack_Range/CollisionShape2D.shape.radius = attack_range_rad
 	max_health = 120

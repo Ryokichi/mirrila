@@ -7,6 +7,7 @@ onready var state = "idle_"
 onready var orientation = "down"
 onready var stateAndOrientation = "idle_down"
 onready var old_stateAndOrientation = ""
+onready var my_class = null
 onready var motion = Vector2.ZERO
 onready var new_destiny = Vector2.ZERO
 onready var target_hit_pos = Vector2.ZERO
@@ -16,9 +17,6 @@ onready var current_health = max_health
 onready var attack_range_rad = 5
 onready var base_time_basic_attack = 1
 onready var time_basic_attack = base_time_basic_attack
-onready var my_class = null
-onready var my_name = null
-
 
 func _ready():
 	$Animation.play(self.stateAndOrientation)
@@ -83,13 +81,12 @@ func apply_movement(acceleration):
 
 func get_class():
 	return my_class
-
+	
 
 func move_to_point(point):
 	new_destiny = point
 	set_state('walk_')
 	pass
-
 
 func attack_enemy(_target):
 	$RayCast.cast_to = (_target.global_position - global_position)
@@ -97,6 +94,16 @@ func attack_enemy(_target):
 	target_hit_pos = $RayCast.get_collision_point()
 	pass
 
+func take_heal(amount, spell_id):
+	current_health += amount
+	if (current_health > max_health):
+		current_health = max_health
+
+	if (spell_id == 1):
+		$SpellEffect/Effect_1.emitting = true
+	
+	update_health(current_health)
+	pass
 
 func take_damage(amount):
 	current_health -= amount
@@ -115,13 +122,11 @@ func set_orientation_to_point(dest):
 	set_orientation(look_to)
 	pass
 
-
 func set_orientation(ori):
 	if (self.orientation != ori):
 		self.orientation = ori
 		updade_StateAndOrientation()
 	pass
-
 
 func set_state(stt):
 	if (self.state != stt):
@@ -133,7 +138,6 @@ func set_state(stt):
 func update_health(health):
 	$Health_Bar/Progress.value = health
 	pass
-
 
 func updade_StateAndOrientation():
 	self.old_stateAndOrientation = self.stateAndOrientation
@@ -152,6 +156,4 @@ func play_current_animation():
 func _on_BodyArea_input_event(_viewport, event, _shape_idx):
 	if (event.is_pressed() && event.button_index == BUTTON_LEFT):
 		GlobalSignals.emit_signal('set_ally_selected', self)
-#		get_tree().get_root().get_node('Level').set_char_selected(self)
-#		GlobalParameters.set_selected_char(self)
 	pass

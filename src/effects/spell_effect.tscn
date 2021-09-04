@@ -23,9 +23,9 @@ orbit_velocity_random = 0.0
 scale_random = 0.3
 color_ramp = SubResource( 2 )
 
-[node name="Node2D" type="Node2D"]
+[node name="SpellEffect" type="Node2D"]
 
-[node name="Particles2D" type="Particles2D" parent="."]
+[node name="Effect_1" type="Particles2D" parent="."]
 emitting = false
 amount = 50
 lifetime = 0.5

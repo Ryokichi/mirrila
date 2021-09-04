@@ -10,7 +10,6 @@ func _ready():
 	pass
 
 func _process(_delta):
-	
 	pass
 
 func _physics_process(delta):
@@ -18,25 +17,25 @@ func _physics_process(delta):
 		if (time_until_game_begin > 0):
 			time_until_game_begin -= delta
 		else:
-			GlobalParameters.game_active = true
-#			begin_attack()
+			game_begin()
 	if (GlobalParameters.ally_selected != null):
 		$YSort/char_selection.global_position = GlobalParameters.ally_selected.global_position
 	pass
 	
 func _input(event):
 	if event.is_action_pressed("KEY_1"):
-		$GameUI/Interface/Spell_Bar/Spell_1.active_spell()
+		$GameUI/Interface/Spell_Bar/Spell_1.set_active()
 	if event.is_action_pressed("KEY_2"):
-		$GameUI/Interface/Spell_Bar/Spell_2.active_spell()
+		$GameUI/Interface/Spell_Bar/Spell_2.set_active()
 	if event.is_action_pressed("KEY_3"):
-		$GameUI/Interface/Spell_Bar/Spell_3.active_spell()
+		$GameUI/Interface/Spell_Bar/Spell_3.set_active()
 	if event.is_action_pressed("KEY_4"):
-		$GameUI/Interface/Spell_Bar/Spell_4.active_spell()
+		$GameUI/Interface/Spell_Bar/Spell_4.set_active()
 	if event.is_action_pressed("KEY_5"):
-		$GameUI/Interface/Spell_Bar/Spell_5.active_spell()
+		$GameUI/Interface/Spell_Bar/Spell_5.set_active()
 	pass
 
-func begin_attack():
+func game_begin():
+	GlobalParameters.game_active = true
 #	game_started = true
 	pass

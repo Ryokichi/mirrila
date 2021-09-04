@@ -11,11 +11,21 @@ func _ready():
 	current_health = max_health
 	attack_range_rad = 40
 	$Attack_Range/CollisionShape2D.shape.radius = attack_range_rad
-	GlobalParameters.connect("update_cast", self, "update_cast_bar")
+	GlobalSignals.connect("spell_cast_begin", self, "spell_cast_begin")
+	GlobalSignals.connect("spell_cast_finished", self, "spell_cast_finished")
+	GlobalSignals.connect("update_cast", self, "update_cast_bar")
+	pass
+
+func spell_cast_begin():
+	$Cast_Bar.visible = true
 	pass
 
 func update_cast_bar(perc):
 	$Cast_Bar.update_bar(perc)
+	pass
+	
+func spell_cast_finished():
+	$Cast_Bar.visible = false
 	pass
 
 func _process(_delta):

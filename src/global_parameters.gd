@@ -8,7 +8,7 @@ var ally_selected = null
 
 #signal spell_animation
 #signal set_selected_char(character)
-signal update_cast(perc)
+
 
 
 func _ready():

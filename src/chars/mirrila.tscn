@@ -221,6 +221,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "channeling_down"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -273,6 +274,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id=8]
 resource_name = "channeling_left"
 length = 0.3
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -324,6 +326,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "channeling_right"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -375,6 +378,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=10]
 resource_name = "channeling_up"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -899,15 +903,9 @@ tracks/3/keys = {
 collision_mask = 2147483655
 script = ExtResource( 2 )
 
-[node name="BodyArea" parent="." index="0"]
-visible = false
-
 [node name="CollisionShape2D" parent="BodyArea" index="0"]
 position = Vector2( 0, -11 )
 shape = SubResource( 1 )
-
-[node name="Attack_Range" parent="." index="1"]
-visible = false
 
 [node name="CollisionShape2D" parent="Attack_Range" index="0"]
 shape = SubResource( 2 )
@@ -917,7 +915,7 @@ position = Vector2( 0, -11 )
 texture = ExtResource( 3 )
 hframes = 10
 vframes = 15
-frame = 149
+frame = 112
 
 [node name="Collision" parent="." index="3"]
 position = Vector2( 0, -1 )
@@ -942,5 +940,5 @@ anims/walk_left = SubResource( 17 )
 anims/walk_right = SubResource( 18 )
 anims/walk_up = SubResource( 19 )
 
-[node name="RayCast" parent="." index="7"]
+[node name="Cast_Bar" parent="." index="6"]
 visible = false

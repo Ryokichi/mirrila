@@ -13,8 +13,8 @@ func _input(event):
 		pass
 	pass
 
-func begin_attack():
-	.begin_attack()
+func game_begin():
+	.game_begin()
 	$YSort/Hunter.move_to_point(Vector2(95,60))
 	$YSort/Mage.move_to_point(Vector2(197,97))
 	$YSort/Monk.move_to_point(Vector2(135,81))
