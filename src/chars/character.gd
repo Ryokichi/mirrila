@@ -5,6 +5,8 @@ const ACCELERATION = 1000
 
 onready var state = "idle_"
 onready var orientation = "down"
+onready var newState = "idle_"
+onready var newOrientation = "down"
 onready var stateAndOrientation = "idle_down"
 onready var old_stateAndOrientation = ""
 onready var my_class = null

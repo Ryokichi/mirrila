@@ -1,9 +1,7 @@
 extends Node2D
 
-
 var boss_pos = null
 var speed = 150
-
 
 func _physics_process(delta):
 	if (boss_pos != null):
@@ -15,7 +13,6 @@ func _on_CollArea_body_entered(body):
 	set_physics_process(false)
 	$AnimationPlayer.play('hit')
 	yield($AnimationPlayer, "animation_finished")
-	queue_free()
 	if (body.is_boss()):
 		self.apply_damage(body)
 	pass

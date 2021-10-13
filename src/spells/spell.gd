@@ -10,14 +10,13 @@ var curr_time_cd = 0
 
 var target_ally = null
 var curr_state = null
-#var prev_state = null
-#var stand_by = true
 
 enum states {ready, casting, on_cd}
 
 func _ready():
 	$CDMask.visible = false
 	self.curr_state = self.states.ready  #por algum motivo ao chamar o set_active ele vem nulo
+	GlobalSignals.connect("spell_interrupted", self, "reset_spell")
 	pass
 
 func set_ini_values():

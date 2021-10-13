@@ -21,7 +21,7 @@ func set_active():
 
 func execute_spell():
 	self.target_ally.take_heal(self.base_heal, self.my_id)
-	GlobalSignals.emit_signal('spell_executed')
+	GlobalSignals.emit_signal('spell_executed', base_mana)
 	pass
 
 

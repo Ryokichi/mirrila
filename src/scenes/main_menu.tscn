@@ -24,7 +24,7 @@ position = Vector2( 160, 90 )
 texture = ExtResource( 1 )
 
 [node name="btn_new_game" type="Button" parent="."]
-margin_left = 89.675
+margin_left = 90.0
 margin_top = 31.5401
 margin_right = 215.675
 margin_bottom = 51.5401
@@ -35,7 +35,7 @@ __meta__ = {
 }
 
 [node name="brn_load_game" type="Button" parent="."]
-margin_left = 88.2703
+margin_left = 90.0
 margin_top = 63.4322
 margin_right = 216.27
 margin_bottom = 83.4322
@@ -46,7 +46,7 @@ __meta__ = {
 }
 
 [node name="btn_settings" type="Button" parent="."]
-margin_left = 89.2703
+margin_left = 90.0
 margin_top = 94.4322
 margin_right = 215.27
 margin_bottom = 114.432
@@ -57,10 +57,10 @@ __meta__ = {
 }
 
 [node name="btn_credits" type="Button" parent="."]
-margin_left = 89.2703
-margin_top = 125.432
-margin_right = 218.27
-margin_bottom = 145.432
+margin_left = 90.0
+margin_top = 124.932
+margin_right = 217.77
+margin_bottom = 144.932
 custom_fonts/font = SubResource( 4 )
 text = "Créditos"
 __meta__ = {
